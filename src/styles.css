@@ -97,7 +97,7 @@ body { background: #050610; }
   white-space: nowrap;
   pointer-events: none;
 }
-.sign-link--reviews .sign-copy { gap: .04em; font-size: clamp(13px, 5cqw, 19px); }
+.sign-link--reviews .sign-copy { gap: .04em; font-size: clamp(12px, 4.3cqw, 18px); }
 .sign-copy__eyebrow { font-size: .7em; letter-spacing: .1em; }
 .sign-link--reviews .sign-copy strong { font-size: 1.2em; letter-spacing: .015em; }
 .sign-link--instagram-one .sign-copy,
