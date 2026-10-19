@@ -64,9 +64,18 @@ body { background: #050610; }
   transform: translateZ(0);
   transition: transform 220ms ease-out, filter 220ms ease-out;
 }
-.sign-link--reviews { --button-width: 100%; }
-.sign-link--instagram-one { --button-width: 100%; }
-.sign-link--instagram-two { --button-width: 100%; }
+.sign-link--reviews {
+  --button-width: 100%;
+  --button-glow: drop-shadow(0 0 5px rgba(255, 196, 39, .72)) drop-shadow(0 0 10px rgba(255, 174, 25, .35));
+}
+.sign-link--instagram-one {
+  --button-width: 100%;
+  --button-glow: drop-shadow(0 0 5px rgba(255, 35, 67, .72)) drop-shadow(0 0 10px rgba(255, 20, 50, .35));
+}
+.sign-link--instagram-two {
+  --button-width: 100%;
+  --button-glow: drop-shadow(0 0 5px rgba(20, 205, 246, .72)) drop-shadow(0 0 10px rgba(20, 190, 245, .35));
+}
 .sign-link img { display: block; width: 100%; height: auto; }
 .sign-copy {
   position: absolute;
@@ -88,7 +97,7 @@ body { background: #050610; }
   white-space: nowrap;
   pointer-events: none;
 }
-.sign-link--reviews .sign-copy { gap: .04em; font-size: clamp(11.2px, 3.2cqw, 16px); }
+.sign-link--reviews .sign-copy { gap: .04em; font-size: clamp(13px, 5cqw, 19px); }
 .sign-copy__eyebrow { font-size: .7em; letter-spacing: .1em; }
 .sign-link--reviews .sign-copy strong { font-size: 1.2em; letter-spacing: .015em; }
 .sign-link--instagram-one .sign-copy,
@@ -102,10 +111,23 @@ body { background: #050610; }
 .sign-link:focus-visible { outline: 2px solid #fff; outline-offset: 3px; border-radius: 8px; box-shadow: 0 0 0 2px #10121d, 0 0 12px 4px rgba(255,255,255,.85); }
 .sign-link:active { transform: scale(1.01); transition-duration: 100ms; }
 
-@media (hover: hover) and (pointer: fine) {
-  .sign-link--reviews:hover { transform: scale(1.03); filter: drop-shadow(0 0 5px rgba(255, 196, 39, .72)) drop-shadow(0 0 10px rgba(255, 174, 25, .35)); }
-  .sign-link--instagram-one:hover { transform: scale(1.03); filter: drop-shadow(0 0 5px rgba(255, 35, 67, .72)) drop-shadow(0 0 10px rgba(255, 20, 50, .35)); }
-  .sign-link--instagram-two:hover { transform: scale(1.03); filter: drop-shadow(0 0 5px rgba(20, 205, 246, .72)) drop-shadow(0 0 10px rgba(20, 190, 245, .35)); }
+@media (hover: hover) and (pointer: fine),
+       (hover: none) and (pointer: coarse) and (any-hover: hover) and (any-pointer: fine) {
+  .sign-link--reviews:hover,
+  .sign-link--instagram-one:hover,
+  .sign-link--instagram-two:hover {
+    transform: scale(1.03);
+    filter: var(--button-glow);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) and (any-hover: none) {
+  .sign-link--reviews,
+  .sign-link--instagram-one,
+  .sign-link--instagram-two {
+    transform: scale(1.03);
+    filter: var(--button-glow);
+  }
 }
 
 .footer { position: absolute; z-index: 2; right: 8%; bottom: 1%; left: 8%; color: #f5eddd; text-align: center; }
