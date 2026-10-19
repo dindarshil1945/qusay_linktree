@@ -38,13 +38,13 @@ function SignLink({ className, href, label, image, children }) {
 function App() {
   return (
     <main className="page" aria-label="QUSAY Store">
+      <img className="page-background" src="/images/bg.PNG" alt="" aria-hidden="true" />
       <div className="composition">
-        <img className="layer layer--background" src="/images/bg.PNG" alt="" aria-hidden="true" />
         <img
           className="layer layer--logo"
           src="/images/logo.PNG"
           alt="QUSAY Store — Retro, thrift, accessories"
-          fetchPriority="high"
+          fetchpriority="high"
         />
         <img className="layer layer--tagline" src="/images/tagline.PNG" alt="Find your kind of vintage." />
         <nav className="links" aria-label="QUSAY Store links">

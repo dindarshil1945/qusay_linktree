@@ -11,19 +11,28 @@
 
 * { box-sizing: border-box; }
 html, body, #root { width: 100%; min-width: 320px; min-height: 100%; margin: 0; }
-body { min-height: 100vh; overflow-x: hidden; background: #050610; }
+html, body { min-height: 100vh; min-height: 100svh; min-height: 100dvh; }
+body { background: #050610; }
 
 .page {
+  position: relative;
+  isolation: isolate;
   display: flex;
+  min-height: 100vh;
   min-height: 100svh;
+  min-height: 100dvh;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  padding-block: env(safe-area-inset-top) env(safe-area-inset-bottom);
+  background-color: #050610;
 }
+
+.page-background { position: absolute; z-index: 0; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center center; }
 
 /* The composition follows bg.PNG's original 940 × 1672 proportions. */
 .composition {
   position: relative;
+  z-index: 1;
   isolation: isolate;
   width: min(100vw, 56.22svh, 497px);
   aspect-ratio: 940 / 1672;
@@ -33,16 +42,15 @@ body { min-height: 100vh; overflow-x: hidden; background: #050610; }
 }
 
 .layer { position: absolute; display: block; height: auto; max-width: none; }
-.layer--background { z-index: 0; inset: 0; width: 100%; height: 100%; object-fit: contain; }
 .layer--logo { z-index: 1; top: 3%; left: -18.3%; width: 129%; }
 .layer--tagline { z-index: 1; top: 37%; left: 12%; width: 76%; }
 .links {
   position: absolute;
   z-index: 3;
   top: 53.5%;
-  left: 22.3%;
+  left: 18.3%;
   display: flex;
-  width: 59.4%;
+  width: 65%;
   flex-direction: column;
   gap: 3cqw;
 }
@@ -100,7 +108,7 @@ body { min-height: 100vh; overflow-x: hidden; background: #050610; }
   .sign-link--instagram-two:hover { transform: scale(1.03); filter: drop-shadow(0 0 5px rgba(20, 205, 246, .72)) drop-shadow(0 0 10px rgba(20, 190, 245, .35)); }
 }
 
-.footer { position: absolute; z-index: 2; right: 8%; bottom: 5.5%; left: 8%; color: #f5eddd; text-align: center; }
+.footer { position: absolute; z-index: 2; right: 8%; bottom: 1%; left: 8%; color: #f5eddd; text-align: center; }
 .footer-mark { display: flex; align-items: center; justify-content: center; gap: 4%; margin-bottom: 2.1%; }
 .footer-rule { height: 1px; flex: 1; background: rgba(245,237,221,.82); }
 .globe { width: 7%; min-width: 23px; max-width: 34px; stroke: currentColor; stroke-width: 1.25; filter: drop-shadow(0 0 3px rgba(255,255,255,.65)); }
