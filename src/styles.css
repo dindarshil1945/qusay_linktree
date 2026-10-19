@@ -104,7 +104,7 @@ body { background: #050610; }
 .sign-link--instagram-two .sign-copy { gap: .25em; font-size: clamp(11px, 3.45cqw, 17px); letter-spacing: 0; }
 .sign-link--instagram-one .sign-copy strong,
 .sign-link--instagram-two .sign-copy strong { font-size: .65em; letter-spacing: .2em; }
-.sign-copy__username { font-family: 'Arial Black', Arial, Helvetica, sans-serif; font-size: 1.1em; font-weight: 900; letter-spacing: -.06em; }
+.sign-copy__username { font-family: 'Arial Black', Arial, Helvetica, sans-serif; font-size: 1.25em; font-weight: 900; letter-spacing: -.06em; }
 .sign-copy__secondary { color: #161510; font-family: Impact, 'Arial Narrow', Arial, sans-serif; }
 .sign-copy__username--red { color: #d7283e; }
 .sign-copy__username--cyan { color: #168dab; }
