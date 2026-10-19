@@ -1,0 +1,118 @@
+:root {
+  color-scheme: dark;
+  background: #050610;
+  color: #181817;
+  font-family: Arial, Helvetica, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { width: 100%; min-width: 320px; min-height: 100%; margin: 0; }
+body { min-height: 100vh; overflow-x: hidden; background: #050610; }
+
+.page {
+  display: flex;
+  min-height: 100svh;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* The composition follows bg.PNG's original 940 × 1672 proportions. */
+.composition {
+  position: relative;
+  isolation: isolate;
+  width: min(100vw, 56.22svh, 497px);
+  aspect-ratio: 940 / 1672;
+  flex: none;
+  overflow: hidden;
+  container-type: inline-size;
+}
+
+.layer { position: absolute; display: block; height: auto; max-width: none; }
+.layer--background { z-index: 0; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.layer--logo { z-index: 1; top: 3%; left: -18.3%; width: 129%; }
+.layer--tagline { z-index: 1; top: 37%; left: 12%; width: 76%; }
+.links {
+  position: absolute;
+  z-index: 3;
+  top: 53.5%;
+  left: 22.3%;
+  display: flex;
+  width: 59.4%;
+  flex-direction: column;
+  gap: 3cqw;
+}
+.sign-link {
+  position: relative;
+  display: block;
+  width: var(--button-width, 100%);
+  margin-left: var(--button-offset, 0%);
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  transform: translateZ(0);
+  transition: transform 220ms ease-out, filter 220ms ease-out;
+}
+.sign-link--reviews { --button-width: 100%; }
+.sign-link--instagram-one { --button-width: 100%; }
+.sign-link--instagram-two { --button-width: 100%; }
+.sign-link img { display: block; width: 100%; height: auto; }
+.sign-copy {
+  position: absolute;
+  top: 50%;
+  right: 13%;
+  left: 32%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: #161510;
+  font-family: Impact, 'Arial Narrow', Arial, sans-serif;
+  font-size: clamp(11px, 3.2cqw, 16px);
+  font-weight: 800;
+  line-height: 1.04;
+  text-align: left;
+  text-shadow: 0 0 1px rgba(0,0,0,.3);
+  transform: translateY(-50%);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.sign-link--reviews .sign-copy { gap: .04em; font-size: clamp(11.2px, 3.2cqw, 16px); }
+.sign-copy__eyebrow { font-size: .7em; letter-spacing: .1em; }
+.sign-link--reviews .sign-copy strong { font-size: 1.2em; letter-spacing: .015em; }
+.sign-link--instagram-one .sign-copy,
+.sign-link--instagram-two .sign-copy { gap: .25em; font-size: clamp(11px, 3.45cqw, 17px); letter-spacing: 0; }
+.sign-link--instagram-one .sign-copy strong,
+.sign-link--instagram-two .sign-copy strong { font-size: .65em; letter-spacing: .2em; }
+.sign-copy__username { font-family: 'Arial Black', Arial, Helvetica, sans-serif; font-size: 1.1em; font-weight: 900; letter-spacing: -.06em; }
+.sign-copy__secondary { color: #161510; font-family: Impact, 'Arial Narrow', Arial, sans-serif; }
+.sign-copy__username--red { color: #d7283e; }
+.sign-copy__username--cyan { color: #168dab; }
+.sign-link:focus-visible { outline: 2px solid #fff; outline-offset: 3px; border-radius: 8px; box-shadow: 0 0 0 2px #10121d, 0 0 12px 4px rgba(255,255,255,.85); }
+.sign-link:active { transform: scale(1.01); transition-duration: 100ms; }
+
+@media (hover: hover) and (pointer: fine) {
+  .sign-link--reviews:hover { transform: scale(1.03); filter: drop-shadow(0 0 5px rgba(255, 196, 39, .72)) drop-shadow(0 0 10px rgba(255, 174, 25, .35)); }
+  .sign-link--instagram-one:hover { transform: scale(1.03); filter: drop-shadow(0 0 5px rgba(255, 35, 67, .72)) drop-shadow(0 0 10px rgba(255, 20, 50, .35)); }
+  .sign-link--instagram-two:hover { transform: scale(1.03); filter: drop-shadow(0 0 5px rgba(20, 205, 246, .72)) drop-shadow(0 0 10px rgba(20, 190, 245, .35)); }
+}
+
+.footer { position: absolute; z-index: 2; right: 8%; bottom: 5.5%; left: 8%; color: #f5eddd; text-align: center; }
+.footer-mark { display: flex; align-items: center; justify-content: center; gap: 4%; margin-bottom: 2.1%; }
+.footer-rule { height: 1px; flex: 1; background: rgba(245,237,221,.82); }
+.globe { width: 7%; min-width: 23px; max-width: 34px; stroke: currentColor; stroke-width: 1.25; filter: drop-shadow(0 0 3px rgba(255,255,255,.65)); }
+.footer p { margin: 0; color: #f5eddd; font-family: 'Arial Narrow', Arial, sans-serif; font-size: clamp(7px, 1.85cqw, 9px); font-weight: 600; letter-spacing: .25em; line-height: 1.5; white-space: nowrap; text-shadow: 0 0 4px rgba(255,255,255,.35); }
+.footer b { color: #ed2941; }
+
+@media (max-width: 340px) {
+  .footer { right: 6%; left: 6%; }
+  .footer p { letter-spacing: .18em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  .sign-link:active { transform: none; }
+}
